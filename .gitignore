@@ -1,0 +1,3 @@
+# ビルドで作られる実行ファイル（配布は GitHub の Releases で行う）
+*.exe
+*.pdb
