@@ -12,6 +12,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>ShotCopy｜撮って、書いて、すぐ貼れるスクリーンショットツール</title>
 <meta name="description" content="ShotCopy は、撮った画面にその場で矢印や文字を書き込んで、そのままチャットやメールに貼り付けられる、小さなスクリーンショットツールです。無料。">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://karukaze.github.io/ShotCopy/">
+<meta property="og:title" content="ShotCopy｜撮って、書いて、すぐ貼れるスクリーンショットツール">
+<meta property="og:description" content="撮った画面にその場で矢印や文字を書き込んで、そのままチャットやメールに貼り付けられる、小さなスクリーンショットツールです。無料。">
+<meta property="og:image" content="https://karukaze.github.io/ShotCopy/img/og.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="アカウントの設定画面に、番号と矢印、「ここをオンにする」と書いた角丸の四角を書き込み、名前とメールアドレスをモザイクで隠しているところ">
+<meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='1' y='1' width='30' height='30' rx='7' fill='%232F6FDB'/%3E%3Cpath d='M8 13V8h5M19 8h5v5M24 19v5h-5M13 24H8v-5' fill='none' stroke='%23fff' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" type="image/svg+xml">
 <style>
   :root {
@@ -150,8 +159,10 @@
         /* 実際の画面（スクリーンショット） */
         .shot { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; object-position: center top;
                 background: var(--bg-soft); border: 1px solid var(--line); border-radius: 10px; margin: 0 0 16px; }
+        .step .shot { aspect-ratio: 7 / 5; }
         .use .shot { margin: 0; aspect-ratio: auto; }
         .use.wide { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1.25fr; gap: 28px; align-items: center; }
+        .use.wide > .shot { max-width: 320px; justify-self: center; }
         .long-visual { display: flex; align-items: center; justify-content: center; gap: 16px; }
         .long-visual figure { margin: 0; text-align: center; }
         .long-visual figcaption { color: var(--sub); font-size: 13.5px; margin-top: 6px; }
@@ -164,7 +175,8 @@
           .long-visual .one { width: 150px; }
           .long-visual .all { height: 240px; }
         }
-        .demo .hero-shot { display: block; width: 100%; height: auto; max-height: 560px; object-fit: contain; border-radius: 10px; }
+        .demo .hero-shot { display: block; width: 100%; height: auto; border-radius: 8px; }
+        .hero figure.demo { max-width: 470px; width: 100%; justify-self: center; }
         .use .shot.top { object-fit: cover; }
     </style>
 </head>
@@ -199,12 +211,12 @@
           <a class="dl-sub" href="https://github.com/karukaze/ShotCopy/releases/latest/download/ShotCopy.exe">インストールなしで試す</a>
         </div>
         <p class="dl-note">どちらも無料で、機能は同じです。インストールなし版は、ダウンロードしたファイルをダブルクリックすれば、すぐ使えます。</p>
-        <div class="meta"><span>Windows 11</span><span>無料</span><span>広告なし</span></div>
+        <div class="meta"><span>Windows 11</span><span>無料</span><span>広告なし</span><span>1MB 未満</span></div>
       </div>
 
       <figure class="demo" style="margin: 0;">
-        <img class="hero-shot" src="img/hero.png" width="1260" height="965" alt="Windows の設定画面に、番号①②③、矢印、吹き出し「ここで明るさを変える」を書き込んでいるところ。下に ShotCopy の書き込みメニュー">
-        <figcaption>実際の書き込みの画面です。<br>番号・矢印・吹き出しで、どこを見ればよいかを示しています。</figcaption>
+        <img class="hero-shot" src="img/hero.png" width="913" height="672" alt="アカウントの設定画面に、青で番号①②と矢印、「ここをオンにする」と書いた角丸の四角を書き込み、名前とメールアドレスをモザイクで隠しているところ。下に ShotCopy の書き込みメニュー">
+        <figcaption>実際の書き込みの画面です。<br>番号と矢印で場所を示し、名前とメールアドレスはモザイクで隠しています。</figcaption>
       </figure>
     </div>
   </section>
@@ -230,19 +242,19 @@
       <p class="sec-lead">起動すると、画面の右下（時計の近く）に小さなアイコンが出て、いつでも使えるように待っています。あとは次のとおりです。</p>
       <div class="steps">
         <div class="step">
-          <img class="shot" src="img/select.png" width="1120" height="870" loading="lazy" alt="範囲を選ぶ画面。上に「画面全体」「前回の範囲」「タイマー」「つなげて撮る」のボタンが並び、メモ帳の窓が青い枠で選ばれている">
+          <img class="shot" src="img/select.png" width="1098" height="722" loading="lazy" alt="範囲を選ぶ画面。上に「画面全体」「前回の範囲」「タイマー」「つなげて撮る」のボタンが並び、マウスを乗せた設定画面の窓が青い枠で囲まれている">
           <div class="num">1</div>
           <h3>撮る</h3>
-          <p>右下の ShotCopy のアイコンをクリックするか、<kbd>Ctrl</kbd>+<kbd>PrintScreen</kbd> を押します。ドラッグで範囲、クリックでウィンドウを選びます。</p>
+          <p>右下の ShotCopy のアイコンをクリックするか、<kbd>Ctrl</kbd>+<kbd>PrintScreen</kbd> を押します。ドラッグで範囲、クリックでウィンドウを選びます。上のボタンからは、画面全体やタイマーなども選べます。</p>
         </div>
         <div class="step">
-          <img class="shot" src="img/tools.png" width="680" height="530" loading="lazy" alt="番号スタンプを付けた設定画面と、その下に並ぶ ShotCopy の書き込みメニュー（ペン・矢印・図形・文字・モザイク・色・元に戻す・コピーして閉じる）">
+          <img class="shot" src="img/tools.png" width="913" height="672" loading="lazy" alt="設定画面に番号①と矢印、「ここをオンにする」と書いた角丸の四角を書き込み、書き込みメニューから図形の種類の一覧を開いているところ">
           <div class="num">2</div>
           <h3>書き込む</h3>
           <p>ペン・矢印・図形などのツールを選んで書き込みます。間違えたら、「元に戻す」を押すだけです。</p>
         </div>
         <div class="step">
-          <img class="shot" src="img/result.png" width="588" height="828" loading="lazy" alt="番号と矢印、吹き出しが入った画像を貼り付けたもの">
+          <img class="shot" src="img/result.png" width="886" height="593" loading="lazy" alt="できあがった画像。番号①②と矢印、角丸の四角が入り、名前とメールアドレスはモザイクで隠れている">
           <div class="num">3</div>
           <h3>貼り付ける</h3>
           <p>「コピーして閉じる」を押すと、元の画面に戻ります。あとは、チャットやメール、AI のチャット欄にそのまま貼り付けられます。</p>
@@ -269,7 +281,7 @@
             <h3>見せたくない情報があるとき</h3>
             <p>名前やメールアドレスはモザイクで。パスワードなどは塗りつぶしで、確実に隠してから送れます。</p>
           </div>
-          <img class="shot" src="img/redact.png" width="776" height="374" loading="lazy" alt="問い合わせ番号・名前・メール・電話のメモ。名前はモザイク、メールと電話は黒で塗りつぶしている">
+          <img class="shot" src="img/redact.png" width="713" height="268" loading="lazy" alt="設定画面の表示名をモザイク、メールアドレスを黒の塗りつぶしで隠し、塗りつぶしの色（黒・グレー・白）を選ぶ一覧を開いているところ">
         </div>
         <div class="use wide">
           <div>
@@ -278,12 +290,12 @@
           </div>
           <div class="long-visual">
             <figure>
-              <img class="one" src="img/scroll.png" width="1051" height="820" loading="lazy" alt="このページの、最初の 1 画面分">
+              <img class="one" src="img/scroll.png" width="1037" height="820" loading="lazy" alt="このページの、最初の 1 画面分">
               <figcaption>1 画面分</figcaption>
             </figure>
             <span class="arrow-mark" aria-hidden="true">→</span>
             <figure>
-              <img class="all" src="img/scroll-full.png" width="263" height="1138" loading="lazy" alt="このページを上から下まで 1 枚につなげた縦長の画像を縮小したもの">
+              <img class="all" src="img/scroll-full.png" width="259" height="1320" loading="lazy" alt="このページを上から下まで 1 枚につなげた縦長の画像を縮小したもの">
               <figcaption>つなげた 1 枚</figcaption>
             </figure>
           </div>
@@ -400,7 +412,7 @@
   <div class="wrap">
     <span>© 2026 karukaze ・ MIT ライセンス</span>
     <span><a href="https://github.com/karukaze/ShotCopy/releases">すべての版と変更履歴</a> ・ <a href="https://github.com/karukaze/ShotCopy/issues">不具合・要望（GitHub）</a></span>
-    <span class="ga-note">このサイトでは、見られ方を知るために Google アナリティクスを使っています。ページの閲覧情報が Google に送られます（名前などの個人情報は含みません）。ShotCopy 本体は通信しません。</span>
+    <span class="ga-note">このサイトでは Google アナリティクスを使っています。ページの閲覧情報が Google に送られます（名前などの個人情報は含みません）。ShotCopy 本体は通信しません。</span>
   </div>
 </footer>
 
