@@ -146,6 +146,26 @@
         section[id] { scroll-margin-top: 80px; }
     
         .plus { color: var(--sub); font-size: 15.5px; margin: -16px 0 28px; }
+
+        /* 実際の画面（スクリーンショット） */
+        .shot { display: block; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; object-position: center top;
+                background: var(--bg-soft); border: 1px solid var(--line); border-radius: 10px; margin: 0 0 16px; }
+        .use .shot { margin: 0; aspect-ratio: auto; }
+        .use.wide { grid-column: 1 / -1; display: grid; grid-template-columns: 1fr 1.25fr; gap: 28px; align-items: center; }
+        .long-visual { display: flex; align-items: center; justify-content: center; gap: 16px; }
+        .long-visual figure { margin: 0; text-align: center; }
+        .long-visual figcaption { color: var(--sub); font-size: 13.5px; margin-top: 6px; }
+        .long-visual img { display: block; border: 1px solid var(--line); border-radius: 8px; background: #fff; box-shadow: var(--shadow); }
+        .long-visual .one { width: 200px; height: auto; }
+        .long-visual .all { height: 300px; width: auto; }
+        .long-visual .arrow-mark { color: var(--sub); font-size: 24px; margin-bottom: 22px; }
+        @media (max-width: 820px) {
+          .use.wide { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+          .long-visual .one { width: 150px; }
+          .long-visual .all { height: 240px; }
+        }
+        .demo .hero-shot { display: block; width: 100%; height: auto; max-height: 560px; object-fit: contain; border-radius: 10px; }
+        .use .shot.top { object-fit: cover; }
     </style>
 </head>
 <body>
@@ -183,99 +203,8 @@
       </div>
 
       <figure class="demo" style="margin: 0;">
-        <!-- 操作の説明を書き込んでいるところ：設定の画面に ① ② と四角・矢印・ひとこと、メールアドレスはモザイク。下に ShotCopy の書き込みメニュー（実物と同じ並び） -->
-        <svg viewBox="0 0 520 380" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="ShotCopy で操作の説明を書き込んでいるところ。設定の画面に、番号 1 と 2 の印、四角と矢印、「ここで切り替えられます」というひとこと、モザイクを書き込み、下に書き込みのメニューが出ている">
-          <!-- 暗くなった画面 -->
-          <rect x="0" y="0" width="520" height="380" rx="10" fill="#3b4150"/>
-          <rect x="12" y="12" width="150" height="9" rx="4.5" fill="#566074"/>
-          <rect x="12" y="28" width="110" height="9" rx="4.5" fill="#566074"/>
-          <!-- 選んだ範囲（明るいまま）：ある設定の画面 -->
-          <rect x="44" y="44" width="432" height="246" fill="#ffffff"/>
-          <rect x="44" y="44" width="432" height="30" fill="#eef2f8"/>
-          <text x="58" y="64" font-size="13" font-weight="700" fill="#3a4250" font-family="Yu Gothic UI, Meiryo, sans-serif">設定</text>
-          <!-- 左の一覧 -->
-          <rect x="44" y="74" width="110" height="216" fill="#f6f8fb"/>
-          <rect x="52" y="108" width="94" height="26" rx="6" fill="#e3ecfb"/>
-          <g font-size="13" fill="#4a5260" font-family="Yu Gothic UI, Meiryo, sans-serif">
-            <text x="62" y="98">表示</text>
-            <text x="62" y="126" font-weight="700" fill="#1b1f24">通知</text>
-            <text x="62" y="154">アカウント</text>
-            <text x="62" y="182">そのほか</text>
-          </g>
-          <!-- 右側 -->
-          <text x="172" y="100" font-size="15" font-weight="700" fill="#1b1f24" font-family="Yu Gothic UI, Meiryo, sans-serif">通知</text>
-          <text x="172" y="134" font-size="13" fill="#3a4250" font-family="Yu Gothic UI, Meiryo, sans-serif">メールで知らせる</text>
-          <rect x="398" y="121" width="38" height="20" rx="10" fill="#2f6fdb"/>
-          <circle cx="426" cy="131" r="7.5" fill="#ffffff"/>
-          <text x="172" y="166" font-size="13" fill="#3a4250" font-family="Yu Gothic UI, Meiryo, sans-serif">送り先</text>
-          <!-- モザイク（メールアドレスを隠したところ） -->
-          <g>
-            <rect x="300" y="154" width="15" height="15" fill="#9aa6b8"/><rect x="315" y="154" width="15" height="15" fill="#c2cad6"/>
-            <rect x="330" y="154" width="15" height="15" fill="#8e9bb0"/><rect x="345" y="154" width="15" height="15" fill="#b5bfcd"/>
-            <rect x="360" y="154" width="15" height="15" fill="#a3aec0"/><rect x="375" y="154" width="15" height="15" fill="#c9d0da"/>
-            <rect x="390" y="154" width="15" height="15" fill="#97a3b6"/><rect x="405" y="154" width="15" height="15" fill="#bcc5d2"/>
-          </g>
-          <rect x="172" y="190" width="200" height="9" rx="4.5" fill="#dfe5ee"/>
-          <rect x="172" y="206" width="150" height="9" rx="4.5" fill="#dfe5ee"/>
-          <!-- 蛍光ペン -->
-          <rect x="170" y="186" width="206" height="17" rx="3" fill="#f5b400" opacity=".38"/>
-          <!-- 書き込み：① 通知 ② スイッチ、矢印とひとこと -->
-          <rect x="50" y="106" width="98" height="30" rx="8" fill="none" stroke="#e5484d" stroke-width="3.2"/>
-          <circle cx="50" cy="106" r="11" fill="#e5484d"/>
-          <text x="50" y="111" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff" font-family="Yu Gothic UI, Meiryo, sans-serif">1</text>
-          <rect x="392" y="115" width="50" height="32" rx="8" fill="none" stroke="#e5484d" stroke-width="3.2"/>
-          <circle cx="392" cy="115" r="11" fill="#e5484d"/>
-          <text x="392" y="120" text-anchor="middle" font-size="13" font-weight="700" fill="#ffffff" font-family="Yu Gothic UI, Meiryo, sans-serif">2</text>
-          <path d="M392 238 L414 152" stroke="#e5484d" stroke-width="3.6" stroke-linecap="round"/>
-          <path d="M405 160 L414 151 L419 163" fill="none" stroke="#e5484d" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round"/>
-          <rect x="300" y="238" width="160" height="38" rx="10" fill="#ffffff" stroke="#e5484d" stroke-width="2.5"/>
-          <text x="380" y="262" text-anchor="middle" font-size="13.5" font-weight="700" fill="#e5484d" font-family="Yu Gothic UI, Meiryo, sans-serif">ここで切り替えられます</text>
-          <!-- 範囲の枠とつまみ -->
-          <rect x="44" y="44" width="432" height="246" fill="none" stroke="#2f6fdb" stroke-width="2"/>
-          <g fill="#ffffff" stroke="#2f6fdb" stroke-width="1.5">
-            <rect x="40" y="40" width="8" height="8"/><rect x="256" y="40" width="8" height="8"/><rect x="472" y="40" width="8" height="8"/>
-            <rect x="472" y="163" width="8" height="8"/><rect x="472" y="286" width="8" height="8"/><rect x="256" y="286" width="8" height="8"/>
-            <rect x="40" y="286" width="8" height="8"/><rect x="40" y="163" width="8" height="8"/>
-          </g>
-          <!-- 書き込みのメニュー（ShotCopy の実物と同じ並び：つかむ所・ペン・矢印・図形・文字・モザイク｜色｜元に戻す｜やめる・コピーして閉じる ▾） -->
-          <rect x="62" y="304" width="400" height="46" rx="11" fill="#ffffff" stroke="#d3d9e3"/>
-          <g fill="#9aa2ae"><circle cx="80" cy="320" r="1.6"/><circle cx="85" cy="320" r="1.6"/><circle cx="80" cy="327" r="1.6"/><circle cx="85" cy="327" r="1.6"/><circle cx="80" cy="334" r="1.6"/><circle cx="85" cy="334" r="1.6"/></g>
-          <g fill="none" stroke="#464646" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-            <!-- ペン -->
-            <path d="M100 336 L101 332 L111 322 L114 325 L104 335 Z"/><path d="M109 324 L112 327"/>
-            <!-- 矢印 -->
-            <path d="M126 335 L139 322"/><path d="M132 322 L139 322 L139 329"/>
-          </g>
-          <!-- 図形（選んでいる道具：うすい青） -->
-          <rect x="151" y="312" width="28" height="30" rx="7" fill="#e6f1fb"/>
-          <rect x="157" y="320" width="16" height="13" rx="4" fill="none" stroke="#185fa5" stroke-width="1.8"/>
-          <!-- 文字 -->
-          <path d="M190 335 L196 320 L202 335 M192.5 330 L199.5 330" fill="none" stroke="#464646" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          <!-- モザイク -->
-          <g fill="#464646"><rect x="214" y="321" width="4.5" height="4.5"/><rect x="223" y="321" width="4.5" height="4.5" opacity=".4"/><rect x="218.5" y="325.5" width="4.5" height="4.5" opacity=".4"/><rect x="214" y="330" width="4.5" height="4.5" opacity=".4"/><rect x="223" y="330" width="4.5" height="4.5"/><rect x="218.5" y="321" width="4.5" height="4.5" opacity=".7"/></g>
-          <!-- 種類が選べる印（右下の小さな三角） -->
-          <g fill="#464646" opacity=".55"><path d="M118 340 L118 336 L114 340 Z"/><path d="M146 340 L146 336 L142 340 Z"/><path d="M176 340 L176 336 L172 340 Z" fill="#185fa5"/><path d="M233 340 L233 336 L229 340 Z"/></g>
-          <path d="M243 316 L243 338" stroke="#e2e5ea" stroke-width="1"/>
-          <!-- 色 -->
-          <circle cx="258" cy="327" r="6" fill="#e5484d"/>
-          <path d="M268 325.5 L271 328.5 L274 325.5" fill="none" stroke="#5a5a5a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <!-- 元に戻す -->
-          <path d="M288 323 L284 327 L288 331" fill="none" stroke="#464646" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M285 327 L294 327 A5 5 0 0 1 294 337 L291 337" fill="none" stroke="#464646" stroke-width="1.8" stroke-linecap="round"/>
-          <path d="M309 316 L309 338" stroke="#e2e5ea" stroke-width="1"/>
-          <!-- やめる -->
-          <path d="M320 322 L330 332 M330 322 L320 332" stroke="#464646" stroke-width="1.8" stroke-linecap="round"/>
-          <!-- コピーして閉じる ▾ -->
-          <rect x="338" y="311" width="116" height="32" rx="8" fill="#185fa5"/>
-          <rect x="344" y="322" width="8" height="10" rx="2" fill="none" stroke="#ffffff" stroke-width="1.3"/>
-          <path d="M347 320 L347 319.5 A1.5 1.5 0 0 1 348.5 318 L353 318 A1.5 1.5 0 0 1 354.5 319.5 L354.5 327" fill="none" stroke="#ffffff" stroke-width="1.3"/>
-          <text x="359" y="331" font-size="9.5" font-weight="700" fill="#ffffff" font-family="Yu Gothic UI, Meiryo, sans-serif">コピーして閉じる</text>
-          <path d="M437 316 L437 338" stroke="#5d8fc4" stroke-width="1"/>
-          <path d="M442 325.5 L445 328.5 L448 325.5" fill="none" stroke="#ffffff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-          <!-- マウスの矢印（書いている途中） -->
-          <path d="M232 234 L232 256 L238 250 L243 261 L247 259 L242 248 L250 248 Z" fill="#ffffff" stroke="#1b1f24" stroke-width="1.4" stroke-linejoin="round"/>
-        </svg>
-        <figcaption>書き込みの例です。<br>番号や矢印で場所を示し、見せたくない所はモザイクで隠しています。</figcaption>
+        <img class="hero-shot" src="img/hero.png" width="1260" height="965" alt="Windows の設定画面に、番号①②③、矢印、吹き出し「ここで明るさを変える」を書き込んでいるところ。下に ShotCopy の書き込みメニュー">
+        <figcaption>実際の書き込みの画面です。<br>番号・矢印・吹き出しで、どこを見ればよいかを示しています。</figcaption>
       </figure>
     </div>
   </section>
@@ -301,16 +230,19 @@
       <p class="sec-lead">起動すると、画面の右下（時計の近く）に小さなアイコンが出て、いつでも使えるように待っています。あとは次のとおりです。</p>
       <div class="steps">
         <div class="step">
+          <img class="shot" src="img/select.png" width="1120" height="870" loading="lazy" alt="範囲を選ぶ画面。上に「画面全体」「前回の範囲」「タイマー」「つなげて撮る」のボタンが並び、メモ帳の窓が青い枠で選ばれている">
           <div class="num">1</div>
           <h3>撮る</h3>
           <p>右下の ShotCopy のアイコンをクリックするか、<kbd>Ctrl</kbd>+<kbd>PrintScreen</kbd> を押します。ドラッグで範囲、クリックでウィンドウを選びます。</p>
         </div>
         <div class="step">
+          <img class="shot" src="img/tools.png" width="680" height="530" loading="lazy" alt="番号スタンプを付けた設定画面と、その下に並ぶ ShotCopy の書き込みメニュー（ペン・矢印・図形・文字・モザイク・色・元に戻す・コピーして閉じる）">
           <div class="num">2</div>
           <h3>書き込む</h3>
           <p>ペン・矢印・図形などのツールを選んで書き込みます。間違えたら、「元に戻す」を押すだけです。</p>
         </div>
         <div class="step">
+          <img class="shot" src="img/result.png" width="588" height="828" loading="lazy" alt="番号と矢印、吹き出しが入った画像を貼り付けたもの">
           <div class="num">3</div>
           <h3>貼り付ける</h3>
           <p>「コピーして閉じる」を押すと、元の画面に戻ります。あとは、チャットやメール、AI のチャット欄にそのまま貼り付けられます。</p>
@@ -332,13 +264,29 @@
           <h3>AI に画面を見せて質問するとき</h3>
           <p>撮ってそのまま AI のチャット欄に貼り付け。気になる所に印を付けておくと、何を聞きたいかが伝わりやすくなります。</p>
         </div>
-        <div class="use">
-          <h3>見せたくない情報があるとき</h3>
-          <p>名前やメールアドレスはモザイクで。パスワードなどは塗りつぶしで、確実に隠してから送れます。</p>
+        <div class="use wide">
+          <div>
+            <h3>見せたくない情報があるとき</h3>
+            <p>名前やメールアドレスはモザイクで。パスワードなどは塗りつぶしで、確実に隠してから送れます。</p>
+          </div>
+          <img class="shot" src="img/redact.png" width="776" height="374" loading="lazy" alt="問い合わせ番号・名前・メール・電話のメモ。名前はモザイク、メールと電話は黒で塗りつぶしている">
         </div>
-        <div class="use">
-          <h3>長いページをまるごと見せたいとき</h3>
-          <p>スクロールしないと全部見えないページも、「つなげて撮る」で縦に長い 1 枚に。そのまま書き込みもできます。</p>
+        <div class="use wide">
+          <div>
+            <h3>長いページをまるごと見せたいとき</h3>
+            <p>スクロールしないと全部見えないページも、「つなげて撮る」で縦に長い 1 枚に。そのまま書き込みもできます。</p>
+          </div>
+          <div class="long-visual">
+            <figure>
+              <img class="one" src="img/scroll.png" width="1051" height="820" loading="lazy" alt="このページの、最初の 1 画面分">
+              <figcaption>1 画面分</figcaption>
+            </figure>
+            <span class="arrow-mark" aria-hidden="true">→</span>
+            <figure>
+              <img class="all" src="img/scroll-full.png" width="263" height="1138" loading="lazy" alt="このページを上から下まで 1 枚につなげた縦長の画像を縮小したもの">
+              <figcaption>つなげた 1 枚</figcaption>
+            </figure>
+          </div>
         </div>
       </div>
     </div>
@@ -352,7 +300,7 @@
       <div class="features">
         <div class="feature">
           <div class="ico"><svg viewBox="0 0 24 24"><path d="M5 19L19 5"/><path d="M12 5h7v7"/></svg></div>
-          <div><h3>矢印・直線</h3><p>「ここ」を指して伝えるのに。</p></div>
+          <div><h3>矢印・直線</h3><p>「ここ」を指して伝えるのに。端を四角や丸に近づけるとくっつき、図形を動かすと一緒についてきます。</p></div>
         </div>
         <div class="feature">
           <div class="ico"><svg viewBox="0 0 24 24"><rect x="4" y="6" width="16" height="12" rx="3"/></svg></div>
